@@ -3,7 +3,6 @@ from typing import Union
 # import datetime
 
 
-
 def mask_account_card(card_info: Union[str]) -> Union[str]:
     """
     Маскирует информацию о карте или счете с применением функций из masks.py
@@ -18,7 +17,6 @@ def mask_account_card(card_info: Union[str]) -> Union[str]:
             card_number = card_info.split()[-1]
             return f"{card_type} {get_mask_card_number(int(card_number))}"
     if "Счет" in card_info:
-        # Маскируем номер счета с добавлением слова "Счет"
         account_number = card_info.split()[-1]
         return f"{card_info.split()[0]} {get_mask_account(int(account_number))}"
     else:
