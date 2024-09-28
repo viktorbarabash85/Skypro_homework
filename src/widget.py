@@ -3,6 +3,7 @@ from typing import Union
 # import datetime
 
 
+
 def mask_account_card(card_info: Union[str]) -> Union[str]:
     """
     Маскирует информацию о карте или счете с применением функций из masks.py
