@@ -1,4 +1,4 @@
-def filter_by_state (transactions: list, state: str = 'EXECUTED') -> list:
+def filter_by_state(transactions: list, state: str = "EXECUTED") -> list:
     """
     Функция фильтрует список словарей по значению ключа state.
     Вход:
@@ -9,7 +9,7 @@ def filter_by_state (transactions: list, state: str = 'EXECUTED') -> list:
     """
     filtered_transactions = []
     for transaction in transactions:
-        if transaction['state'] == state:
+        if transaction["state"] == state:
             filtered_transactions.append(transaction)
     return filtered_transactions
 
@@ -23,4 +23,4 @@ def sort_by_date(transactions: list, reverse: bool = True) -> list:
     Выход:
     list: Новый список словарей, отсортированный по дате.
     """
-    return sorted(transactions, key=lambda x: x['date'], reverse=reverse)
+    return sorted(transactions, key=lambda x: x["date"], reverse=reverse)
