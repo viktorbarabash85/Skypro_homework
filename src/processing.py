@@ -12,3 +12,15 @@ def filter_by_state (transactions: list, state: str = 'EXECUTED') -> list:
         if transaction['state'] == state:
             filtered_transactions.append(transaction)
     return filtered_transactions
+
+
+def sort_by_date(transactions: list, reverse: bool = True) -> list:
+    """
+    Функция сортирует список словарей по дате.
+    Вход:
+    transactions (list): Список словарей с данными о банковских операциях.
+    reverse (bool, optional): Параметр, задающий порядок сортировки (по умолчанию True).
+    Выход:
+    list: Новый список словарей, отсортированный по дате.
+    """
+    return sorted(transactions, key=lambda x: x['date'], reverse=reverse)
