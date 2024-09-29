@@ -23,7 +23,7 @@ def mask_account_card(card_info: Union[str]) -> Union[str]:
         raise ValueError("Неизвестный тип карты")
 
 
-def get_date(date_str: str) -> str:
+def get_date(date_str: Union[str]) -> Union[str]:
     """
     Конвертирует строку с датой в формат "ДД.ММ.ГГГГ"
     Вход: "2024-03-11T02:26:18.671407"
