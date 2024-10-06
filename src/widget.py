@@ -20,7 +20,8 @@ def mask_account_card(card_info: Union[str]) -> Union[str]:
         account_number = card_info.split()[-1]
         return f"{card_info.split()[0]} {get_mask_account(int(account_number))}"
     else:
-        raise ValueError("Неизвестный тип карты")
+        #raise ValueError("Неизвестный тип карты")
+        return "Неизвестный тип карты"
 
 
 def get_date(date_str: Union[str]) -> Union[str]:
@@ -29,14 +30,16 @@ def get_date(date_str: Union[str]) -> Union[str]:
     Вход: "2024-03-11T02:26:18.671407"
     Выход: "11.03.2024"
     """
-    # Разбиваем строку на части по символу 'T'
-    date_part, time_part = date_str.split("T")
-    # Разбиваем дату на части по символу '-'
-    year, month, day = date_part.split("-")
-    # Формируем строку в формате "дд.мм.гггг"
-    result = f"{day}.{month}.{year}"
-
-    return result
+    if date_str == "" or len(date_str) == 0:
+        return "Некорректная дата"
+    else:
+        # Разбиваем строку на части по символу 'T'
+        date_part, time_part = date_str.split("T")
+        # Разбиваем дату на части по символу '-'
+        year, month, day = date_part.split("-")
+        # Формируем строку в формате "дд.мм.гггг"
+        result = f"{day}.{month}.{year}"
+        return result
 
 
 # """ Реализация функции для конвертирования строки с датой

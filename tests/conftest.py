@@ -18,3 +18,22 @@ def account_number_correct():
 @pytest.fixture
 def account_number_incorrect():
     return "Некорректно введен номер счета"
+
+
+""" Фикстуры для тестирования правильности маскирования информации о типе карте или счете """
+@pytest.fixture
+def card_info_correct():
+    return "Visa Platinum 7000 79** **** 6361"
+
+@pytest.fixture
+def card_info_incorrect():
+    return "Неизвестный тип карты"
+
+""" Фикстуры для тестирования правильности конвертации строки с датой """
+@pytest.fixture
+def date_str_correct():
+    return "11.03.2024"
+
+@pytest.fixture
+def date_str_incorrect():
+    return "Некорректная дата"
