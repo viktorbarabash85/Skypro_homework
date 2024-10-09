@@ -1,4 +1,7 @@
-def filter_by_state(transactions: list, state: str = "EXECUTED") -> list:
+from typing import Union
+
+
+def filter_by_state(transactions: list, state: str = "EXECUTED") -> Union[list, str]:
     """
     Функция фильтрует список словарей по значению ключа state.
     Вход:
@@ -11,7 +14,10 @@ def filter_by_state(transactions: list, state: str = "EXECUTED") -> list:
     for transaction in transactions:
         if transaction["state"] == state:
             filtered_transactions.append(transaction)
-    return filtered_transactions
+    if not filtered_transactions:
+        return "Информация отсутствует или некорректно введен запрашиваемый статус"
+    else:
+        return filtered_transactions
 
 
 def sort_by_date(transactions: list, reverse: bool = True) -> list:
