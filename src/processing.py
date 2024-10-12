@@ -1,5 +1,7 @@
 from typing import Union
 
+from src.widget import get_date
+
 
 def filter_by_state(transactions: list, state: str = "EXECUTED") -> Union[list, str]:
     """
@@ -19,8 +21,7 @@ def filter_by_state(transactions: list, state: str = "EXECUTED") -> Union[list, 
     else:
         return filtered_transactions
 
-
-def sort_by_date(transactions: list, reverse: bool = True) -> list:
+def sort_by_date(transactions: list, reverse: bool = True) -> Union[list, str]:
     """
     Функция сортирует список словарей по дате.
     Вход:
@@ -29,4 +30,10 @@ def sort_by_date(transactions: list, reverse: bool = True) -> list:
     Выход:
     list: Новый список словарей, отсортированный по дате.
     """
-    return sorted(transactions, key=lambda x: x["date"], reverse=reverse)
+    valid_transactions = []
+    for transaction in transactions:
+        date_str = get_date(transaction["date"])
+        if date_str.startswith("Введен некорректный или нестандартный формат даты"):
+            return date_str
+        valid_transactions.append(transaction)
+    return sorted(valid_transactions, key=lambda x: x["date"], reverse=reverse)

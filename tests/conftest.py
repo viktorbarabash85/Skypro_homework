@@ -1,5 +1,6 @@
 import pytest
 
+
 """
 В test_masks.py для теста get_mask_card_number.
 Фикстуры для тестирования правильности маскирования номера карты
@@ -46,7 +47,7 @@ def date_str_correct():
 
 @pytest.fixture
 def date_str_incorrect():
-    return "Некорректная дата"
+    return "Введен некорректный или нестандартный формат даты"
 
 """
 В test_processinng.py для теста filter_by_state
@@ -81,3 +82,43 @@ def filter_without_state_correct():
             {'id': 939719570, 'state': 'EXECUTED', 'date': '2018-06-30T02:08:58.425572'}
         ]
     )
+
+"""
+В test_processinng.py для теста sort_by_date
+Фикстуры для тестирования сортировки списка словарей по датам в порядке убывания
+(по умолчанию — убывание: True)
+"""
+@pytest.fixture
+def sort_by_date_true_correct():
+    return(
+        [
+            {'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.512364'},
+            {'id': 615064591, 'state': 'CANCELED', 'date': '2018-10-14T08:21:33.419441'},
+            {'id': 594226727, 'state': 'CANCELED', 'date': '2018-09-12T21:27:25.241689'},
+            {'id': 939719570, 'state': 'EXECUTED', 'date': '2018-06-30T02:08:58.425572'}
+        ]
+    )
+
+"""
+В test_processinng.py для теста sort_by_date
+Фикстуры для тестирования сортировки списка словарей по датам в порядке возрастания
+(по умолчанию — убывание: True)
+"""
+@pytest.fixture
+def sort_by_date_false_correct():
+    return(
+        [
+            {'id': 939719570, 'state': 'EXECUTED', 'date': '2018-06-30T02:08:58.425572'},
+            {'id': 594226727, 'state': 'CANCELED', 'date': '2018-09-12T21:27:25.241689'},
+            {'id': 615064591, 'state': 'CANCELED', 'date': '2018-10-14T08:21:33.419441'},
+            {'id': 41428829, 'state': 'EXECUTED', 'date': '2019-07-03T18:35:29.512364'}
+        ]
+    )
+
+"""
+В test_processinng.py для теста sort_by_date
+Фикстуры для тестирования сортировки списка словарей при некорректно введенной дате
+"""
+@pytest.fixture
+def sort_by_date_incorrect():
+    return "Введен некорректный или нестандартный формат даты"
