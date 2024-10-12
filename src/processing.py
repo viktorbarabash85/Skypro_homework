@@ -21,6 +21,7 @@ def filter_by_state(transactions: list, state: str = "EXECUTED") -> Union[list, 
     else:
         return filtered_transactions
 
+
 def sort_by_date(transactions: list, reverse: bool = True) -> Union[list, str]:
     """
     Функция сортирует список словарей по дате.
