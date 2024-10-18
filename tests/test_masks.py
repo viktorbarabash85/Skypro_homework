@@ -3,14 +3,14 @@ import pytest
 from src.masks import get_mask_account, get_mask_card_number
 
 
-def test_get_mask_card_number_correct(card_number_correct):
+def test_get_mask_card_number_correct(card_number_correct: str) -> None:
     """
     Тестирование корректности маскирования номера карты с применением фикстур и параметризации
     """
     assert get_mask_card_number(1234567890123456) == card_number_correct
 
 
-def test_get_mask_card_number_incorrect(card_number_incorrect):
+def test_get_mask_card_number_incorrect(card_number_incorrect: str) -> None:
     """
     Тестирование некорректности маскирования номера карты с применением фикстур и параметризации
     """
@@ -30,18 +30,18 @@ def test_get_mask_card_number_incorrect(card_number_incorrect):
         ("1234567XXXXXXXXX", "Некорректно введен номер карты"),
     ],
 )
-def test_get_mask_card_number(value, expected):
+def test_get_mask_card_number(value: str, expected: str) -> None:
     assert get_mask_card_number(value) == expected
 
 
-def test_get_mask_account_correct(account_number_correct):
+def test_get_mask_account_correct(account_number_correct: str) -> None:
     """
     Тестирование корректности маскирования номера счета с применением фикстур и параметризации
     """
     assert get_mask_account(73654108430135874305) == account_number_correct
 
 
-def test_get_mask_account_incorrect(account_number_incorrect):
+def test_get_mask_account_incorrect(account_number_incorrect: str) -> None:
     """
     Тестирование некорректности маскирования номера счета с применением фикстур и параметризации
     """
@@ -59,5 +59,5 @@ def test_get_mask_account_incorrect(account_number_incorrect):
         ("1234567890XXXXXXXXXX", "Некорректно введен номер счета"),
     ],
 )
-def test_get_mask_account(value, expected):
+def test_get_mask_account(value: str, expected: str) -> None:
     assert get_mask_account(value) == expected
