@@ -34,7 +34,7 @@ def test_mask_account_card(value: str, expected: str) -> None:
 
 def test_get_date_correct(date_str_correct: str) -> None:
     """
-    Применение фикстур. Тестирование корректности конвертации строки с датой
+    Применение фикстур. Тестирование корректности конвертации строки с датой.
     """
     assert get_date("2024-03-11T02:26:18.671407") == date_str_correct
 

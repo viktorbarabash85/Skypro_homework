@@ -109,7 +109,7 @@ def test_sort_by_date_true(sort_by_date_true_correct):
 
 def test_sort_by_date_false(sort_by_date_false_correct):
     """
-    Тестирование сортировки списка словарей по датам в порядке возрастания
+    Тестирование сортировки списка словарей по датам в порядке возрастания.
     reverse: False)
     """
     assert (

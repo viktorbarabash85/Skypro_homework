@@ -5,14 +5,14 @@ from src.masks import get_mask_account, get_mask_card_number
 
 def test_get_mask_card_number_correct(card_number_correct: str) -> None:
     """
-    Тестирование корректности маскирования номера карты с применением фикстур и параметризации
+    Тестирование корректности маскирования номера карты с применением фикстур и параметризации.
     """
     assert get_mask_card_number(1234567890123456) == card_number_correct
 
 
 def test_get_mask_card_number_incorrect(card_number_incorrect: str) -> None:
     """
-    Тестирование некорректности маскирования номера карты с применением фикстур и параметризации
+    Тестирование некорректности маскирования номера карты с применением фикстур и параметризации.
     """
     assert get_mask_card_number(0000000000000000) == card_number_incorrect
     # with pytest.raises(AssertionError) as exc_info:

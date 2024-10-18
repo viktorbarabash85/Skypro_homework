@@ -40,7 +40,7 @@ def account_number_incorrect():
 @pytest.fixture
 def card_info_correct():
     """
-    В test_widget.py для теста mask_account_card.
+    В test_widget.py для теста mask_account_card
     Фикстуры для тестирования корректности маскирования информации о типе карте или счете
     """
     return "Visa Platinum 7000 79** **** 6361"
