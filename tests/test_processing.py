@@ -84,12 +84,11 @@ def test_filter_without_state_correct(filter_without_state_correct: list[dict[st
         ),
     ],
 )
-#def test_filter_by_state(transactions, state, expected):
 def test_filter_by_state(transactions: list, state: str, expected: list) -> None:
     assert filter_by_state(transactions, state) == expected
 
 
-def test_sort_by_date_true(sort_by_date_true_correct):
+def test_sort_by_date_true(sort_by_date_true_correct: list[dict[str, str]]) -> None:
     """
     Тестирование сортировки списка словарей по датам в порядке убывания
     (по умолчанию — убывание: True)
@@ -107,7 +106,7 @@ def test_sort_by_date_true(sort_by_date_true_correct):
     )
 
 
-def test_sort_by_date_false(sort_by_date_false_correct):
+def test_sort_by_date_false(sort_by_date_false_correct: list[dict[str, str]]) -> None:
     """
     Тестирование сортировки списка словарей по датам в порядке возрастания.
     reverse: False)
@@ -126,7 +125,7 @@ def test_sort_by_date_false(sort_by_date_false_correct):
     )
 
 
-def test_sort_by_date_incorrect(sort_by_date_incorrect):
+def test_sort_by_date_incorrect(sort_by_date_incorrect: list[dict[str, str]]) -> None:
     """
     Тестирование сортировки списка словарей при некорректно введенной дате
     (пустая дата, без T, изменена структура даты, изменена структура времени,
