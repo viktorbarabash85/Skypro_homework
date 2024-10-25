@@ -16,7 +16,8 @@ def test_filter_by_state_correct(filter_by_state_correct: list[dict[str, str]]) 
                 {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
             ],
             "CANCELED",
-        ) == filter_by_state_correct
+        )
+        == filter_by_state_correct
     )
 
 
@@ -33,7 +34,8 @@ def test_filter_by_state_incorrect(filter_by_state_incorrect: list[dict[str, str
                 {"id": 615064591, "state": "EXECUTED", "date": "2018-10-14T08:21:33.419441"},
             ],
             "CANCELED",
-        ) == filter_by_state_incorrect
+        )
+        == filter_by_state_incorrect
     )
 
 
@@ -49,7 +51,8 @@ def test_filter_without_state_correct(filter_without_state_correct: list[dict[st
                 {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
                 {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
             ]
-        ) == filter_without_state_correct
+        )
+        == filter_without_state_correct
     )
 
 
@@ -98,7 +101,8 @@ def test_sort_by_date_true(sort_by_date_true_correct: list[dict[str, str]]) -> N
                 {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
                 {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
             ]
-        ) == sort_by_date_true_correct
+        )
+        == sort_by_date_true_correct
     )
 
 
@@ -116,7 +120,8 @@ def test_sort_by_date_false(sort_by_date_false_correct: list[dict[str, str]]) ->
                 {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
             ],
             False,
-        ) == sort_by_date_false_correct
+        )
+        == sort_by_date_false_correct
     )
 
 
@@ -134,7 +139,8 @@ def test_sort_by_date_incorrect(sort_by_date_incorrect: list[dict[str, str]]) ->
                 {"id": 594226727, "state": "CANCELED", "date": "2018.09.12(T21:27:25.241689)"},
                 {"id": 615064591, "state": "CANCELED", "date": "14.10.2018_T_08:21:33"},
             ]
-        ) == sort_by_date_incorrect
+        )
+        == sort_by_date_incorrect
     )
 
 

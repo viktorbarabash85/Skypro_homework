@@ -1,12 +1,15 @@
 # Тест записи в файл при успешной работе функции.
-import os, pytest
+
+import os
+
+import pytest
 
 from src.decorators import log
 
 
-def test_log_file():
+def test_log_file() -> None:
     @log(filename="mylog.txt")
-    def example_function(x, y):
+    def example_function(x: int, y: int) -> int:
         return x * y
 
     result = example_function(5, 100)
@@ -21,9 +24,10 @@ def test_log_file():
 
 # Тест вывода в консоль при успешной работе функции.
 
-def test_log_console(capsys):
+
+def test_log_console(capsys: pytest.CaptureFixture) -> None:
     @log()
-    def example_function(x, y):
+    def example_function(x: int, y: int) -> int:
         return x * y
 
     result = example_function(5, 100)
@@ -36,9 +40,10 @@ def test_log_console(capsys):
 
 # Тест записи в файл, если произошла ошибка.
 
-def test_log_file_raise():
+
+def test_log_file_raise() -> None:
     @log(filename="mylog.txt")
-    def example_function(x, y):
+    def example_function(x: int, y: int) -> None:
         raise TypeError("Что-то пошло не так")
 
     with pytest.raises(TypeError, match="Что-то пошло не так"):
@@ -53,9 +58,10 @@ def test_log_file_raise():
 
 # Тест вывода в консоль, если произошла ошибка.
 
-def test_log_console_raise(capsys):
+
+def test_log_console_raise(capsys: pytest.CaptureFixture) -> None:
     @log()
-    def example_function(x, y):
+    def example_function(x: int, y: int) -> None:
         raise ValueError("Что-то пошло не так")
 
     with pytest.raises(ValueError, match="Что-то пошло не так"):

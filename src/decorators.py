@@ -1,12 +1,13 @@
 """Модуль декораторов"""
-import os
 
+import os
 from functools import wraps
 from typing import Any, Callable, Optional
 
 
 def log(filename: Optional[str] = None) -> Callable:
     """Декоратор, который будет логировать вызов функции и ее результат в файл или в консоль."""
+
     def wrapper(func: Callable) -> Callable:
         @wraps(func)
         def inner(*args: tuple, **kwargs: dict) -> Any:
@@ -27,5 +28,7 @@ def log(filename: Optional[str] = None) -> Callable:
                         file.write(log_str + "\n")
                 else:  # Вывод лога в консоль.
                     print(log_str)
+
         return inner
+
     return wrapper
