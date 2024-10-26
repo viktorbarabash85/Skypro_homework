@@ -1,3 +1,4 @@
+from src.decorators import log
 from src.generators import card_number_generator, filter_by_currency, transaction_descriptions
 from src.masks import get_mask_account, get_mask_card_number
 from src.processing import filter_by_state, sort_by_date
@@ -118,4 +119,13 @@ print("Принимает начальное и конечное значени�
 # print(list(card_number_generator(1, 5)))
 for card_number in card_number_generator(1, 5):
     print(card_number)
+print("_" * 13)
+
+
+@log(filename="mylog.txt")
+def my_function(x: int, y: int) -> int:
+    return x + y
+
+
+my_function(1, 2)
 print("_" * 13)
