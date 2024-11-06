@@ -9,7 +9,7 @@ load_dotenv()
 API_KEY = os.getenv("API_KEY")
 API_URL = "https://apilayer.com/exchangerates_data/convert?to={to}&from={from_}&amount={amount}"
 
-def convert_currency_api(transaction: dict) -> float:
+def api_convert_currency(transaction: [dict, str]) -> [float, str]:
     """Через API конвертирует сумму транзакции через в рубли."""
     amount = transaction.get("operationAmount", {}).get("amount")
     currency = transaction.get("operationAmount", {}).get('currency', {}).get("code")
