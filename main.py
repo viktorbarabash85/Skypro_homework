@@ -1,8 +1,13 @@
+import os.path
+
 from src.decorators import log
 from src.generators import card_number_generator, filter_by_currency, transaction_descriptions
 from src.masks import get_mask_account, get_mask_card_number
 from src.processing import filter_by_state, sort_by_date
 from src.widget import get_date, mask_account_card
+from src.utils import read_json_file
+from src.external_api import convert_currency_api
+
 
 # homwork_11_1
 # Словарь для для проверки функций filter_by_currency и transaction_descriptions
@@ -126,6 +131,15 @@ print("_" * 13)
 def my_function(x: int, y: int) -> int:
     return x + y
 
-
 my_function(1, 2)
 print("_" * 13)
+
+# homwork_12_1
+current_dir = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(current_dir, "data", "operations.json")
+transactions_json = read_json_file(file_path)
+
+
+for transaction in transactions_json:
+    rub_amount = convert_currency_api(transaction)
+    print(f"Transaction amount in RUB: {rub_amount}")
