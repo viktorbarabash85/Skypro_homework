@@ -6,7 +6,7 @@ from src.masks import get_mask_account, get_mask_card_number
 from src.processing import filter_by_state, sort_by_date
 from src.widget import get_date, mask_account_card
 from src.utils import read_json_file
-from src.external_api import convert_currency_api
+from src.external_api import api_convert_currency
 
 
 # homwork_11_1
@@ -59,22 +59,22 @@ transactions = [
     },
 ]
 
-print("_" * 13)
+print("_" * 13) # для разделения
 print("Маскирует номер банковской карты")
 print(get_mask_card_number(7000792289606361))
-print("_" * 13)
+print("_" * 13) # для разделения
 
 print("Маскирует номер банковского счета")
 print(get_mask_account(73654108430135874305))
-print("_" * 13)
+print("_" * 13) # для разделения
 
 print("Маскирует информацию о карте или счете с применением функций из masks.py")
 print(mask_account_card("Visa Platinum 7000792289606361"))
-print("_" * 13)
+print("_" * 13) # для разделения
 
 print("Конвертирует строку с датой в формат 'ДД.ММ.ГГГГ'")
 print(get_date("2024-03-11T02:26:18.671407"))
-print("_" * 13)
+print("_" * 13) # для разделения
 
 print("Функция фильтрует список словарей по значению ключа state.")
 print(
@@ -88,7 +88,7 @@ print(
         "CANCELED",
     )
 )
-print("_" * 13)
+print("_" * 13) # для разделения
 
 print("Функция сортирует список словарей по дате.")
 print(
@@ -101,7 +101,7 @@ print(
         ]
     )
 )
-print("_" * 13)
+print("_" * 13) # для разделения
 
 print("Функция принимает на список словарей, представляющих транзакции")
 print("Возвращает итератор, который поочередно выдает транзакции,")
@@ -109,7 +109,7 @@ usd_transactions = filter_by_currency(transactions, "USD")
 for _ in range(2):
     print(next(usd_transactions))
 # print(list(filter_by_currency(transactions, "USD")))
-print("_" * 13)
+print("_" * 13) # для разделения
 
 print("Генератор принимает список словарей с транзакциями")
 print("Возвращает описание каждой операции по очереди.")
@@ -117,29 +117,28 @@ descriptions = transaction_descriptions(transactions)
 for _ in range(5):
     print(next(descriptions))
 # print(list(transaction_descriptions(transactions)))
-print("_" * 13)
+print("_" * 13) # для разделения
 
 print("Генератор выдает номера банковских карт в формате XXXX XXXX XXXX XXXX.")
 print("Принимает начальное и конечное значения для генерации диапазона номеров.")
 # print(list(card_number_generator(1, 5)))
 for card_number in card_number_generator(1, 5):
     print(card_number)
-print("_" * 13)
+print("_" * 13) # для разделения
 
 
 @log(filename="mylog.txt")
 def my_function(x: int, y: int) -> int:
     return x + y
-
 my_function(1, 2)
-print("_" * 13)
+print("_" * 13) # для разделения
 
 # homwork_12_1
 current_dir = os.path.dirname(os.path.abspath(__file__))
 file_path = os.path.join(current_dir, "data", "operations.json")
 transactions_json = read_json_file(file_path)
 
-
 for transaction in transactions_json:
-    rub_amount = convert_currency_api(transaction)
+    rub_amount = api_convert_currency(transaction)
     print(f"Transaction amount in RUB: {rub_amount}")
+print("_" * 13) # для разделения
