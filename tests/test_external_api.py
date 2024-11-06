@@ -4,16 +4,14 @@ from unittest.mock import MagicMock, Mock, patch
 
 import requests
 from dotenv import load_dotenv
+
 from src.external_api import api_convert_currency
 
 load_dotenv(".env")
-
-API_KEY=os.getenv("API_KEY")
+API_KEY = os.getenv("API_KEY")
 
 
 class TestConvertToRub(unittest.TestCase):
-
-
 
     @patch("requests.get")
     def test_api_convert_currency_usd_to_rub(self, mock_get: MagicMock) -> None:
@@ -31,7 +29,6 @@ class TestConvertToRub(unittest.TestCase):
             "https://apilayer.com/exchangerates_data/convert?to=RUB&from=USD&amount=1", headers={"apikey": API_KEY}
         )
 
-
     @patch("requests.get")
     def test_api_convert_currency_eur_to_rub(self, mock_get: MagicMock) -> None:
         """
@@ -48,16 +45,14 @@ class TestConvertToRub(unittest.TestCase):
             "https://apilayer.com/exchangerates_data/convert?to=RUB&from=EUR&amount=1", headers={"apikey": API_KEY}
         )
 
-
     def test_api_convert_currency_rub_to_rub(self) -> None:
         """
         Тестирование корректности конвертации RUB в RUB
         """
-        transaction= {"operationAmount": {"amount": 100, "currency": {"code": "RUB"}}}
+        transaction = {"operationAmount": {"amount": 100, "currency": {"code": "RUB"}}}
 
         result = api_convert_currency(transaction)
         self.assertEqual(result, 100)
-
 
     def test_api_convert_currency_other_to_rub(self) -> None:
         """
@@ -67,7 +62,6 @@ class TestConvertToRub(unittest.TestCase):
 
         result = api_convert_currency(transaction)
         self.assertEqual(result, 0.0)
-
 
     @patch("requests.get")
     def test_api_convert_currency_failure(self, mock_get: MagicMock) -> None:

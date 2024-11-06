@@ -1,12 +1,11 @@
 import json
 import unittest
-
-from unittest.mock import patch, mock_open, MagicMock
+from unittest.mock import MagicMock, mock_open, patch
 
 from src.utils import read_json_file
 
-class TestExternalAPI(unittest.TestCase):
 
+class TestExternalAPI(unittest.TestCase):
 
     @patch("builtins.open", new_callable=mock_open, read_data='[{"transaction": "data1"}, {"transaction": "data2"}]')
     def test_read_json_file_correct(self, mock_file: MagicMock) -> None:
@@ -18,7 +17,6 @@ class TestExternalAPI(unittest.TestCase):
         self.assertEqual(result, expected_data)
         mock_file.assert_called_once_with("fake_path.json", "r", encoding="utf-8")
 
-
     @patch("builtins.open", new_callable=mock_open, read_data="{}")
     def test_read_json_file_invalid_connect(self, mock_file: MagicMock) -> None:
         """
@@ -27,7 +25,6 @@ class TestExternalAPI(unittest.TestCase):
         result = read_json_file("fake_path.json")
         self.assertEqual(result, [])
         mock_file.assert_called_once_with("fake_path.json", "r", encoding="utf-8")
-
 
     @patch("builtins.open", new_callable=mock_open, read_data="")
     def test_read_json_file_empty(self, mock_file: MagicMock) -> None:
@@ -38,7 +35,6 @@ class TestExternalAPI(unittest.TestCase):
         self.assertEqual(result, [])
         mock_file.assert_called_once_with("fake_path.json", "r", encoding="utf-8")
 
-
     @patch("builtins.open", new_callable=mock_open, read_data="")
     def test_read_json_file_not_found(self, mock_file: MagicMock) -> None:
         """
@@ -47,7 +43,6 @@ class TestExternalAPI(unittest.TestCase):
         result = read_json_file("fake_path.json")
         self.assertEqual(result, [])
         mock_file.assert_called_once_with("fake_path.json", "r", encoding="utf-8")
-
 
     @patch("builtins.open", new_callable=mock_open, read_data='[{"transaction": "data"}')
     @patch("json.load", dide_effect=json.JSONDecodeError("Expecting value", "", 0))
