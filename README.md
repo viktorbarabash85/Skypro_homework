@@ -7,7 +7,7 @@ ___
 - [Установка зависимостей из `requirements.txt`](#p-stylecolorrosybrown-установка-зависимостей-из-requirementstxt--p)
 - [Запуск функций в файле `main.py` в корне проекта](#p-stylecolorrosybrown-запуск-функций-в-файле-mainpy-в-корне-проекта--p)
 - [Тестирование](#p-stylecolorrosybrown-тестирование--p)
-- [JSON-файл]
+- [JSON-файл](#p-stylecolorrosybrown-json-файл--p)
 - [Логгирование](#p-stylecolorrosybrown-логгирование--p)
 
 
