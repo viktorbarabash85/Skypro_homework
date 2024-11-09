@@ -66,7 +66,7 @@ class TestConvertToRub(unittest.TestCase):
     @patch("requests.get")
     def test_api_convert_currency_failure(self, mock_get: MagicMock) -> None:
         """
-        Тестирование конвертации ошибкой
+        Тестирование конвертации ошибкой.
         """
         mock_response = Mock()
         mock_response.raise_for_status.side_effect = requests.exceptions.RequestException(response=mock_response)

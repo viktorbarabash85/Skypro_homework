@@ -15,7 +15,7 @@ def api_convert_currency(transaction: dict) -> float:
     currency = transaction.get("operationAmount", {}).get("currency", {}).get("code", "")  # Default to empty string
 
     if currency == "RUB":
-        return float(amount)  # Ensure it's returned as float
+        return float(amount)  # Ensure it's returned as float.
     elif currency in ["USD", "EUR"]:
         try:
             response = requests.get(

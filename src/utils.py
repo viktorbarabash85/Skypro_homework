@@ -8,7 +8,7 @@ logger = setup_logger("utils", "utils")
 
 
 def read_json_file(file_path: str) -> List[Dict]:
-    """Читает JSON-файл и возвращает список словарей с данными о транзакциях."""
+    """Читает JSON-файл и возвращает список словарей с данными о транзакциях"""
     try:
         with open(file_path, "r", encoding="utf-8") as file:
             repos = json.load(file)

@@ -1,4 +1,4 @@
-# Тест фильтра по валюте.
+# Тест фильтра по валюте
 from src.generators import card_number_generator, filter_by_currency, transaction_descriptions
 
 

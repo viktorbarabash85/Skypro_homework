@@ -36,7 +36,7 @@ def test_get_mask_card_number(value: str, expected: str) -> None:
 
 def test_get_mask_account_correct(account_number_correct: str) -> None:
     """
-    Тестирование корректности маскирования номера счета с применением фикстур и параметризации
+    Тестирование корректности маскирования номера счета с применением фикстур и параметризации.
     """
     assert get_mask_account(73654108430135874305) == account_number_correct
 

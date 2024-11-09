@@ -90,7 +90,7 @@ def test_filter_by_state(transactions: list, state: str, expected: list) -> None
 
 def test_sort_by_date_true(sort_by_date_true_correct: list[dict[str, str]]) -> None:
     """
-    Тестирование сортировки списка словарей по датам в порядке убывания
+    Тестирование сортировки списка словарей по датам в порядке убывания.
     (по умолчанию — убывание: True)
     """
     assert (

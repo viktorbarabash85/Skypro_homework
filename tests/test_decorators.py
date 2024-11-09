@@ -56,7 +56,7 @@ def test_log_file_raise() -> None:
     assert log_string == "example_function TypeError: Что-то пошло не так. Inputs: (5, 100), {}\n"
 
 
-# Тест вывода в консоль, если произошла ошибка.
+# Тест вывода в консоль, если произошла ошибка
 
 
 def test_log_console_raise(capsys: pytest.CaptureFixture) -> None:

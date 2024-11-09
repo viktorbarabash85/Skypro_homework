@@ -1,4 +1,4 @@
-# Модуль generators содержит функции для работы с массивами транзакций
+# Модуль generators содержит функции для работы с массивами транзакций.
 
 from typing import Iterable, Iterator
 

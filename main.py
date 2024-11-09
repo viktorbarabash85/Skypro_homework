@@ -140,4 +140,4 @@ for transaction in transactions_json:
     rub_amount = api_convert_currency(transaction)
     print(f"Transaction amount in RUB: {rub_amount}")
 
-print("_" * 13)  # для разделения
+print("_" * 13)   # для разделения

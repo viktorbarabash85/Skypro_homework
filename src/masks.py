@@ -2,7 +2,7 @@ from typing import Union
 
 from src.file_logger import setup_logger
 
-# Настраиваем логгер для модуля masks
+# Настраиваем логгер для модуля masks.
 logger = setup_logger("masks", "masks")
 
 

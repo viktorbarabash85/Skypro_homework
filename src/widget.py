@@ -5,7 +5,7 @@ from typing import Union
 
 def mask_account_card(card_info: Union[str]) -> Union[str]:
     """
-    Маскирует информацию о карте или счете с применением функций из masks.py
+    Маскирует информацию о карте или счете с применением функций из masks.py.
     """
     from src.masks import get_mask_account, get_mask_card_number
 

@@ -6,7 +6,7 @@ from typing import Any, Callable, Optional
 
 
 def log(filename: Optional[str] = None) -> Callable:
-    """Декоратор, который будет логировать вызов функции и ее результат в файл или в консоль."""
+    """Декоратор, который будет логировать вызов функции и ее результат в файл или в консоль"""
 
     def wrapper(func: Callable) -> Callable:
         @wraps(func)

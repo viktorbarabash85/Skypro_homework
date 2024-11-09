@@ -10,7 +10,7 @@ class TestExternalAPI(unittest.TestCase):
     @patch("builtins.open", new_callable=mock_open, read_data='[{"transaction": "data1"}, {"transaction": "data2"}]')
     def test_read_json_file_correct(self, mock_file: MagicMock) -> None:
         """
-        Тестирование корректности существовующего файла
+        Тестирование корректности существовующего файла.
         """
         expected_data = [{"transaction": "data1"}, {"transaction": "data2"}]
         result = read_json_file("fake_path.json")

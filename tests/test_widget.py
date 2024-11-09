@@ -5,7 +5,7 @@ from src.widget import get_date, mask_account_card
 
 def test_mask_account_card_correct(card_info_correct: str) -> None:
     """
-    Тестирование корректности маскирования информации о карте или счете
+    Тестирование корректности маскирования информации о карте или счете.
     """
     assert mask_account_card("Visa Platinum 7000792289606361") == card_info_correct
 
